@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminApp", "AdminApp\AdminApp.csproj", "{C70E8FAF-9D69-415C-995A-10BDE8ACAEF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{D6E7487C-7442-4CD8-AC3F-DC8FE20E8913}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examination.Shared", "BuildingBlocks\Examination.Shared\Examination.Shared.csproj", "{ACA06277-FEFF-4D13-B0E4-949F1E9E0075}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C70E8FAF-9D69-415C-995A-10BDE8ACAEF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C70E8FAF-9D69-415C-995A-10BDE8ACAEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C70E8FAF-9D69-415C-995A-10BDE8ACAEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C70E8FAF-9D69-415C-995A-10BDE8ACAEF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA06277-FEFF-4D13-B0E4-949F1E9E0075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA06277-FEFF-4D13-B0E4-949F1E9E0075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA06277-FEFF-4D13-B0E4-949F1E9E0075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA06277-FEFF-4D13-B0E4-949F1E9E0075}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ACA06277-FEFF-4D13-B0E4-949F1E9E0075} = {D6E7487C-7442-4CD8-AC3F-DC8FE20E8913}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FE10B72-61EE-4F22-818C-A96AA18A14ED}
+	EndGlobalSection
+EndGlobal
