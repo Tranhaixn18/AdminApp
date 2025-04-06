@@ -4,20 +4,25 @@ pipeline{
         stage('Setup .NET 5') {
             steps {
                 script {
+                    // Kiểm tra xem dotnet có sẵn không
                     def dotnetInstalled = sh(script: 'dotnet --version', returnStatus: true) == 0
                     if (!dotnetInstalled) {
                         echo ".NET 5 chưa được cài đặt, đang tiến hành cài đặt..."
                         sh '''
-                            apt-get update
-                            apt-get install -y wget
-                            wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-                            dpkg -i packages-microsoft-prod.deb
-                            apt-get update
-                            apt-get install -y dotnet-sdk-5.0
-                            ln -s /usr/lib/dotnet/dotnet /usr/bin/dotnet
+                            # Cài curl nếu chưa có
+                            apt-get update || true
+                            apt-get install -y curl || true
+                            # Tải và chạy script cài đặt .NET 5
+                            curl -sSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
+                            chmod +x dotnet-install.sh
+                            ./dotnet-install.sh --version 5.0.17
+                            # Thêm dotnet vào PATH cho phiên hiện tại
+                            export PATH="$PATH:/var/jenkins_home/.dotnet"
                         '''
+                        // Cập nhật PATH cho các bước sau
+                        env.PATH = "${env.PATH}:/var/jenkins_home/.dotnet"
                     } else {
-                        echo ".NET 5 đã sẵn sàng!"
+                        echo ".NET 5 đã được cài đặt, tiếp tục build..."
                     }
                 }
             }
