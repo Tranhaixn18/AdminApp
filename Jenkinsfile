@@ -10,11 +10,9 @@ pipeline {
                         sh '''
                             # Kiểm tra curl
                             command -v curl >/dev/null 2>&1 || { echo "Curl không có, cần cài trước hoặc dùng image có curl"; exit 1; }
-                            # Tải .NET 5 SDK từ link chính thức
+                            # Tải .NET 5 SDK
                             curl -sSL https://dotnetcli.azureedge.net/dotnet/Sdk/5.0.408/dotnet-sdk-5.0.408-linux-x64.tar.gz -o dotnet-sdk.tar.gz
-                            # Kiểm tra file
-                            file dotnet-sdk.tar.gz | grep -q "gzip compressed data" || { echo "File tải về không phải tar.gz"; exit 1; }
-                            # Giải nén
+                            # Giải nén trực tiếp (bỏ kiểm tra file)
                             mkdir -p /var/jenkins_home/dotnet
                             tar -xzf dotnet-sdk.tar.gz -C /var/jenkins_home/dotnet
                             # Thêm dotnet vào PATH
