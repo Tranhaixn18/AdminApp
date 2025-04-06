@@ -1,5 +1,5 @@
 pipeline{
-    agent: any
+    agent any
     stages{
         stage('Setup .NET 5') {
             steps {
