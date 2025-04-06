@@ -37,7 +37,7 @@ pipeline{
 
         stage('Build Project'){
             steps{
-                sh ''''
+                sh '''
                 dotnet build AdminApp.sln
                 '''
             }
