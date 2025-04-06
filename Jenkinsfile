@@ -8,6 +8,8 @@ pipeline{
                     if (!dotnetInstalled) {
                         echo ".NET 5 chưa được cài đặt, đang tiến hành cài đặt..."
                         sh '''
+                            apt-get update
+                            apt-get install -y wget
                             wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
                             dpkg -i packages-microsoft-prod.deb
                             apt-get update
